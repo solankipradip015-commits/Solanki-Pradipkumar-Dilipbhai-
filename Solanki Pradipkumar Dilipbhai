@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.Objects;
+
+public class SecurityDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Simulation: Setting a "secure" password
+        System.out.print("Set your password: ");
+        String password = scanner.nextLine();
+        int storedHash = password.hashCode(); // Simple representation of hashing
+
+        System.out.println("Password set successfully.");
+
+        // Simulation: Login attempt
+        System.out.print("Enter password to login: ");
+        String loginAttempt = scanner.nextLine();
+
+        if (Objects.hashCode(loginAttempt) == storedHash) {
+            System.out.println("Access Granted: Welcome!");
+        } else {
+            System.out.println("Access Denied: Incorrect password.");
+        }
+
+        scanner.close();
+    }
+}
